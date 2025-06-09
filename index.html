@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu 💖</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
+        color: #880e4f;
+        transition: background 0.8s ease-in-out;
+      }
+
+      #container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        max-width: 600px;
+      }
+
+      .message {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .subtext {
+        font-size: 16px;
+        color: black;
+        margin-bottom: 30px;
+      }
+
+      #loveButton {
+        padding: 14px 28px;
+        font-size: 18px;
+        background: linear-gradient(90deg, #f06292, #f8bbd0);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s ease;
+      }
+
+      #loveButton:hover {
+        background: linear-gradient(90deg, #ec407a, #f48fb1);
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="initialText">
+        <div class="message">💖 Yei..... halo</div>
+        <div class="subtext">Tekan di bawah kalau mau lanjut</div>
+      </div>
+      <div id="messageContainer" style="display: none">
+        <div class="message" id="message"></div>
+      </div>
+      <button id="loveButton">❤️</button>
+    </div>
+
+    <script>
+      const messages = [
+        "Hai kamu... 🥺",
+        "Iya kamu cantik 💭",
+        "Cuma mau bilang sesuatu nih 🙈",
+        "Sebelum lanjut... ini benar si cantik kan...",
+        "Saya cuman mau bilang kamu cantik kok 😊",
+        "Tapi serius deh...",
+        "Saya mau bilang sesuatu 🙈",
+        "Makasih ya....🌸",
+        "Mau tau satu rahasia?",
+        "Aku suka kamu... banget 😚",
+        "Hehehe, yaudah gitu aja sih 😆",
+        "Tapi jangan merajuk yah, cantik 😊",
+        "Cie ada yang merajuk 😝",
+        "Coba senyum dulu cantik 🙈",
+      ];
+
+      const backgrounds = [
+        "linear-gradient(to right, #f8bbd0, #f48fb1)",
+        "linear-gradient(to right, #fce4ec, #f8bbd0)",
+        "linear-gradient(to right, #f48fb1, #f06292)",
+        "linear-gradient(to right, #fce4ec, #f3e5f5)",
+        "linear-gradient(to right, #ffcccb, #ffe4ec)",
+        "linear-gradient(to right, #e1bee7, #f8bbd0)",
+      ];
+
+      let index = -1;
+      const messageEl = document.getElementById("message");
+      const initialTextEl = document.getElementById("initialText");
+      const messageContainer = document.getElementById("messageContainer");
+      const loveBtn = document.getElementById("loveButton");
+
+      loveBtn.addEventListener("click", () => {
+        index++;
+
+        if (index === 0) {
+          initialTextEl.style.display = "none";
+          messageContainer.style.display = "block";
+        }
+
+        if (index < messages.length) {
+          messageEl.textContent = messages[index];
+          document.body.style.background =
+            backgrounds[index % backgrounds.length];
+        } else {
+          messageEl.textContent = "💖 Terima kasih yaa 💖";
+          loveBtn.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
